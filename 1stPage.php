@@ -4,7 +4,7 @@
 
 //establish connection of php and pdo
 
-require 'pdo.php';
+require 'config.php';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=UTF8";
 $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]; //handling error
@@ -107,39 +107,41 @@ try {
         z-index: -1;
     }
 
-@media(min-aspect-ratio: 16/9) {
-    .back-video{
-        width: 100%;
-        height: auto;
+    @media(min-aspect-ratio: 16/9) {
+        .back-video{
+            width: 100%;
+            height: auto;
+        }
     }
-}
 
-@media(max-aspect-ratio: 16/9) {
-    .back-video{
-        width: auto;
-        height: 100%;
+    @media(max-aspect-ratio: 16/9) {
+        .back-video{
+            width: auto;
+            height: 100%;
+        }
     }
-}
 
-#submit{
-    font-family: "Special Elite", system-ui;
-    font-size: medium;
-    padding: 10px;
+    #submit{
+        font-family: "Special Elite", system-ui;
+        font-size: medium;
+        padding: 10px;
 
-    color: #101010;
-    padding: 8px 22px;
-    border-radius: 15px;
-    background: rgb(230, 228, 225);
-    transition: all 0.2s ease;
-}
+        color: #101010;
+        padding: 8px 22px;
+        border-radius: 15px;
+        background: rgb(230, 228, 225);
+        transition: all 0.2s ease;
 
-button:active {
-    transform: scale(0.96)
-}
+        cursor: pointer;
+    }
 
-#name, #password {
-    border-radius: 10px;
-}
+    button:active {
+        transform: scale(0.96)
+    }
+
+    #name, #password {
+        border-radius: 10px;
+    }
 </style>
 
 <body>

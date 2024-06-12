@@ -43,36 +43,69 @@
         z-index: -1;
     }
 
-    .back-video::-webkit-scrollbar {
-        display: none;
+    a {
+        text-decoration: none;
+        padding-left: 5px;
+        color: #101010;
     }
 
-@media(min-aspect-ratio: 16/9) {
-    .back-video{
-        width: 100%;
-        height: auto;
+    #back{
+        font-family: "Special Elite", system-ui;
+        font-size: medium;
         
-    }
-}
+        padding: 10px;
+        color: #101010;
+        border-radius: 15px;
+        background: rgb(230, 228, 225);
+        transition: all 0.2s ease;
 
-@media(max-aspect-ratio: 16/9) {
-    .back-video{
-        width: auto;
-        height: 100%;
+        width: 50px;
     }
-}
+
+    #back:hover {
+        background-color: #c0c0c0;
+        color: #101010;
+        border-radius: 6px;
+        background: rgb(230, 228, 225);
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    #back:active{
+        transform: scale(0.96)
+    }
+
+    @media(min-aspect-ratio: 16/9) {
+        .back-video{
+            width: 100%;
+            height: auto;
+            
+        }
+    }
+
+    @media(max-aspect-ratio: 16/9) {
+        .back-video{
+            width: auto;
+            height: 100%;
+        }
+    }
 </style>
 <body>
     <div>
         <video autoplay loop muted plays-inline class="back-video">
             <source src="3rd_Page.mp4" type="video/mp4">
         </video>
+
+        <div id="back">
+            <a href="2ndPage.php">Back</a>
+        </div>
+
         <div class="third-container">
             <div id="Details">
                 
                 <?php
                     //PHP Logic 
-                    require 'pdo.php';
+                    require 'config.php';
 
                     if (!isset($_SESSION['id'])) {
                         header("Location: 1stPage.php");
@@ -112,6 +145,6 @@
                     ?>
             </div>
         </div>
-    </div>
+    </div>   
 </body>
 </html>

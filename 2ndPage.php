@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2nd Page</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
 <style>
-body {
+    body {
         font-family: "Special Elite", system-ui;
-
-    }
+        overflow: hidden;
+        }
 
     .post-container {
         max-width: 600px;
@@ -54,42 +55,78 @@ body {
     }
 
     .back-video{
-    left: 0;
-    top: 0;
-    position: absolute;   
-    z-index: -1;
-    position: fixed;
-}
+        left: 0;
+        top: 0;
+        position: absolute;   
+        z-index: -1;
+        position: fixed;
+    }
 
-@media(min-aspect-ratio: 16/9) {
-    .back-video{
-        width: 100%;
-        height: auto;
+    a {
+        text-decoration: none;
+        padding: 7px;
+        color: #101010;
+    }
+    #back{
+        font-family: "Special Elite", system-ui;
+        font-size: medium;
         
-    }
-}
+        padding: 10px;
+        color: #101010;
+        border-radius: 15px;
+        background: rgb(230, 228, 225);
+        transition: all 0.2s ease;
 
-@media(max-aspect-ratio: 16/9) {
-    .back-video{
-        width: auto;
-        height: 100%;
+        width: 50px;
     }
-}
-    </style>
-</head>
+
+    #back:hover {
+        background-color: #c0c0c0;
+        color: #101010;
+        border-radius: 6px;
+        background: rgb(230, 228, 225);
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    #back:active{
+        transform: scale(0.96)
+    }
+
+    @media(min-aspect-ratio: 16/9) {
+        .back-video{
+            width: 100%;
+            height: auto;
+            
+        }
+    }
+
+    @media(max-aspect-ratio: 16/9) {
+        .back-video{
+            width: auto;
+            height: 100%;
+        }
+    }
+
+</style>
 
 <body>
     <div>
         <video autoplay loop muted plays-inline class="back-video">
             <source src="2nd_Page.mp4" type="video/mp4">
         </video>
+
+        <div id="back">
+            <a href="1stPage.php">Back</a>
+        </div>
+
         <div class="post-container">
             <h1>Published Books</h1>
             <ul id="postLists">
 
                 <?php
                 //PHP Logic 
-                require 'pdo.php';
+                require 'config.php';
 
                 if (!isset($_SESSION['id'])) {
                     header("Location: 1stPage.php");
@@ -124,7 +161,7 @@ body {
 </body>
 
 <script>
-    // Redirect to post.php with the ID of the clicked post
+    // Redirect to 3rd.php with the ID of the clicked post
 document.addEventListener("DOMContentLoaded", function() {
     const postLists = document.getElementById("postLists");
     postLists.addEventListener("click", function (event) {
